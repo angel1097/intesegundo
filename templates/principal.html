@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login y Registro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/principal.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/principal.js') }}"></script>
+</head>
+<body>
+    <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo">
+    <script>
+        function submitForm() {
+            const formData = {
+                nombre: document.getElementById('nombre').value,
+                id_trabajador: document.getElementById('id_trabajador').value
+            };
+
+            fetch('/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert('Error: ' + data.error);
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+
+    <div class="container">
+        <div class="form-container register-container">
+            <form method="POST" action="{{ url_for('registro_biometrico') }}">
+                <h1>Registrarse</h1>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icono-grande bi bi-cloud-arrow-up-fill" viewBox="0 0 16 16">
+    <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2m2.354 5.146a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0z"/>
+  </svg>
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre Apelido Apellido" pattern="^[A-Z][a-z]+(\s[A-Z][a-z]+)*$"/>
+                <input type="text" id="id_trabajador" name="id_trabajador" placeholder="ID trabajador"/>
+
+                <button type="submit">Registro Biométrico</button>
+            </form>
+        </div>
+
+        <div class="form-container login-container">
+            <form method="POST" action="{{ url_for('login_biometrico') }}">
+                <h1>Iniciar Sesión</h1>
+                <img src="{{ url_for('static', filename='images/ojo.jpeg') }}" class="biometrico-img">
+                <button type="submit">Log In Biométrico</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="background">
+
+    </div>
+    <script src="{{ url_for('static', filename='js/principal.js') }}"></script>
+</body>
+</html>

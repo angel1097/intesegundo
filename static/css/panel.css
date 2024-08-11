@@ -1,0 +1,246 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #0A0869;
+    color: white;
+    margin: 0;
+    display: flex;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    background-color: #05044B;
+    padding-top: 20px;
+    min-height: 100vh;
+}
+
+.nav-link {
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+    border: none;
+    margin: 10px 20px;
+    text-align: left;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link:hover {
+    background-color: #3136B3;
+}
+
+#content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-section {
+    display: none;
+    background-color: #ffffff;
+    color: black;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    min-height: 600px;
+    max-height: 800px;
+    overflow-y: auto;
+    position: relative;
+}
+
+
+.content-section.active {
+    display: block;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    color: black;
+    margin-bottom: 30px;
+}
+
+.profile-header img {
+    border-radius: 50%;
+    margin-right: 30px;
+    width: 100px;
+    height: 100px;
+}
+
+.profile-header h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.profile-header p {
+    margin: 50px;
+    font-size: 16px;
+}
+
+.profile-nav {
+    margin-bottom: 30px;
+}
+
+.profile-link {
+    display: flex;
+    align-items: center;
+    color: #05044B;
+    text-decoration: none;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.profile-link:hover {
+    background-color: #E0E0E0;
+    color: #3136B3;
+}
+
+.profile-section {
+    display: none;
+    background-color: #F4F4F9;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.profile-section.active {
+    display: block;
+}
+
+.close-btn {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3136B3;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+.close-btn:hover {
+    background-color: #05044B;
+}
+
+.profile-section label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.profile-section input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #0A0869;
+    color: white;
+}
+
+.field-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.content-section.active .profile-section input {
+    background-color: #0A0869;
+    border-color: #05044B;
+}
+
+.content-section.active .profile-section label {
+    color: #05044B;
+}
+
+.profile-nav .profile-link img {
+    width: 30px;
+    height: auto;
+    margin-right: 10px;
+}
+
+#registro-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-section {
+    width: 48%;
+}
+
+.form-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-section label {
+    margin: 5px 0;
+}
+
+.form-section input {
+    margin-bottom: 10px;
+}
+
+.form-section button {
+    margin-top: 10px;
+}
+
+.accordion-button {
+    background-color: #3136B3;
+    color: white;
+    border: none;
+    padding: 10px;
+    text-align: left;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.accordion-button:hover {
+    background-color: #05044B;
+}
+
+.accordion-content {
+    display: none;
+    padding: 20px;
+    background-color: #F4F4F9;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+.accordion-content.active {
+    display: block;
+}
+
+.nav-link svg {
+    margin-right: 18px;
+}
+
+
+
+

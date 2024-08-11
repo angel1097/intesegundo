@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Acceso Confirmado</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/accesoConfirmado.css') }}">
+</head>
+<body>
+    <!-- Elemento con esquina curva -->
+    <div id="curved-box"></div>
+
+    <!-- Imágenes y contenido de la página -->
+    <img src="{{ url_for('static', filename='images/logo.png') }}" id="logo">
+    <img src="{{ url_for('static', filename='images/acceso.jpeg') }}" id="acceso">
+    <div id="content">
+        <h1>Acceso<br>Confirmado</h1>
+        <a href="panel"><button id="Siguiente">Siguiente</button></a>
+        <h4>Disfruta de tu entorno seguro</h4>
+    </div>
+</body>
+</html>

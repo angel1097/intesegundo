@@ -1,0 +1,23 @@
+import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.model_selection import train_test_split
+import joblib
+
+# Cargar datos
+df = pd.read_csv('Phishing_Email.csv')
+X = df['Email Text']
+y = df['Label']
+
+# Dividir los datos en entrenamiento y prueba (opcional)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Crear y ajustar el vectorizador
+vectorizer = TfidfVectorizer()
+X_train_vectorized = vectorizer.fit_transform(X_train)
+
+# Guardar el vectorizador
+joblib.dump(vectorizer, 'vectorizer.pkl')
+
+# Cargar el vectorizador (opcional, para verificar)
+loaded_vectorizer = joblib.load('vectorizer.pkl')
+X_test_vectorized = loaded_vectorizer.transform(X_test)

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/panel.css') }}">
+</head>
+<body>
+
+
+<nav>
+    <!-- enlaces de navegación -->
+
+        <a href="#" id="home" class="nav-link" onclick="showSection('home-content')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill"
+             viewBox="0 0 16 16">
+            <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/>
+        </svg>
+        Home</a>
+    <a href="#" id="perfil" class="nav-link" onclick="showSection('perfil-content')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-person"
+             viewBox="0 0 16 16">
+            <path d="M12 1a1 1 0 0 1 1 1v10.755S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+            <path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+        </svg>
+        Perfil</a>
+    <a href="#" id="monitoreo" class="nav-link" onclick="showSection('monitoreo-content')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-flower1"
+             viewBox="0 0 16 16">
+            <path d="M6.174 1.184a2 2 0 0 1 3.652 0A2 2 0 0 1 12.99 3.01a2 2 0 0 1 1.826 3.164 2 2 0 0 1 0 3.652 2 2 0 0 1-1.826 3.164 2 2 0 0 1-3.164 1.826 2 2 0 0 1-3.652 0A2 2 0 0 1 3.01 12.99a2 2 0 0 1-1.826-3.164 2 2 0 0 1 0-3.652A2 2 0 0 1 3.01 3.01a2 2 0 0 1 3.164-1.826M8 1a1 1 0 0 0-.998 1.03l.01.091q.017.116.054.296c.049.241.122.542.213.887.182.688.428 1.513.676 2.314L8 5.762l.045-.144c.248-.8.494-1.626.676-2.314.091-.345.164-.646.213-.887a5 5 0 0 0 .064-.386L9 2a1 1 0 0 0-1-1M2 9l.03-.002.091-.01a5 5 0 0 0 .296-.054c.241-.049.542-.122.887-.213a61 61 0 0 0 2.314-.676L5.762 8l-.144-.045a61 61 0 0 0-2.314-.676 17 17 0 0 0-.887-.213 5 5 0 0 0-.386-.064L2 7a1 1 0 1 0 0 2m7 5-.002-.03a5 5 0 0 0-.064-.386 16 16 0 0 0-.213-.888 61 61 0 0 0-.676-2.314L8 10.238l-.045.144c-.248.8-.494 1.626-.676 2.314-.091.345-.164.646-.213.887a5 5 0 0 0-.064.386L7 14a1 1 0 1 0 2 0m-5.696-2.134.025-.017a5 5 0 0 0 .303-.248c.184-.164.408-.377.661-.629A61 61 0 0 0 5.96 9.23l.103-.111-.147.033a61 61 0 0 0-2.343.572c-.344.093-.64.18-.874.258a5 5 0 0 0-.367.138l-.027.014a1 1 0 1 0 1 1.732zM4.5 14.062a1 1 0 0 0 1.366-.366l.014-.027q.014-.03.036-.084a5 5 0 0 0 .102-.283c.078-.233.165-.53.258-.874a61 61 0 0 0 .572-2.343l.033-.147-.11.102a61 61 0 0 0-1.743 1.667 17 17 0 0 0-.629.66 5 5 0 0 0-.248.304l-.017.025a1 1 0 0 0 .366 1.366m9.196-8.196a1 1 0 0 0-1-1.732l-.025.017a5 5 0 0 0-.303.248 17 17 0 0 0-.661.629A61 61 0 0 0 10.04 6.77l-.102.111.147-.033a61 61 0 0 0 2.342-.572c.345-.093.642-.18.875-.258a5 5 0 0 0 .367-.138zM11.5 1.938a1 1 0 0 0-1.366.366l-.014.027q-.014.03-.036.084a5 5 0 0 0-.102.283c-.078.233-.165.53-.258.875a61 61 0 0 0-.572 2.342l-.033.147.11-.102a61 61 0 0 0 1.743-1.667c.252-.253.465-.477.629-.66a5 5 0 0 0 .248-.304l.017-.025a1 1 0 0 0-.366-1.366M14 9a1 1 0 0 0 0-2l-.03.002a5 5 0 0 0-.386.064c-.242.049-.543.122-.888.213-.688.182-1.513.428-2.314.676L10.238 8l.144.045c.8.248 1.626.494 2.314.676.345.091.646.164.887.213a5 5 0 0 0 .386.064zM1.938 4.5a1 1 0 0 0 .393 1.38l.084.035q.108.045.283.103c.233.078.53.165.874.258a61 61 0 0 0 2.343.572l.147.033-.103-.111a61 61 0 0 0-1.666-1.742 17 17 0 0 0-.66-.629 5 5 0 0 0-.304-.248l-.025-.017a1 1 0 0 0-1.366.366m2.196-1.196.017.025a5 5 0 0 0 .248.303c.164.184.377.408.629.661A61 61 0 0 0 6.77 5.96l.111.102-.033-.147a61 61 0 0 0-.572-2.342c-.093-.345-.18-.642-.258-.875a5 5 0 0 0-.138-.367l-.014-.027a1 1 0 1 0-1.732 1m9.928 8.196a1 1 0 0 0-.366-1.366l-.027-.014a5 5 0 0 0-.367-.138c-.233-.078-.53-.165-.875-.258a61 61 0 0 0-2.342-.572l-.147-.033.102.111a61 61 0 0 0 1.667 1.742c.253.252.477.465.66.629a5 5 0 0 0 .304.248l.025.017a1 1 0 0 0 1.366-.366m-3.928 2.196a1 1 0 0 0 1.732-1l-.017-.025a5 5 0 0 0-.248-.303 17 17 0 0 0-.629-.661A61 61 0 0 0 9.23 10.04l-.111-.102.033.147a61 61 0 0 0 .572 2.342c.093.345.18.642.258.875a5 5 0 0 0 .138.367zM8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+        </svg>
+        Monitoreo de Actividad</a>
+    <a href="#" id="registro" class="nav-link" onclick="showSection('registro-content')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-add"
+             viewBox="0 0 16 16">
+            <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+            <path d="M2 13c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4"/>
+        </svg>
+        Registro</a>
+    <a href="#" id="guia" class="nav-link" onclick="showSection('guia-content')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+             class="bi bi-person-workspace" viewBox="0 0 16 16">
+            <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+            <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.4 5.4 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2z"/>
+        </svg>
+        Guía</a>
+
+    <a href="#" id="CerrarSesion" class="nav-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-toggle-on"
+             viewBox="0 0 16 16">
+            <path d="M5 3a5 5 0 0 0 0 10h6a5 5 0 0 0 0-10zm6 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8"/>
+        </svg>
+        Cerrar sesión
+    </a>
+</nav>
+
+
+<div id="content">
+<div id="home-content" class="content-section">Bienvenido a Home
+        <h1>Cybiometrics</h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#tip1">Configuración de un entorno de trabajo seguro</a></li>
+                <li><a href="#tip2">Ergonomía para el trabajo remoto</a></li>
+                <li><a href="#tip3">Seguridad de la información y ciberseguridad</a></li>
+                <li><a href="#tip4">Manejo del estrés y bienestar</a></li>
+                <li><a href="#tip5">Comunicación efectiva en equipos remotos</a></li>
+                <li><a href="#tip6">Protección contra amenazas cibernéticas</a></li>
+                <li><a href="#tip7">Manejo seguro de datos y contraseñas</a></li>
+            </ul>
+        </nav>
+        <main>
+            <section id="tip1">
+                <h2>Configuración de un entorno de trabajo seguro</h2>
+                <p>Establecer un entorno de trabajo seguro es fundamental para prevenir accidentes y mejorar la
+                    productividad. Asegúrate de que tu espacio esté libre de obstáculos, utiliza una silla ergonómica
+                    que apoye tu postura y ajusta la iluminación para reducir la fatiga ocular. También es recomendable
+                    mantener los cables organizados para evitar tropezones o daños al equipo.</p>
+            </section>
+            <section id="tip2">
+                <h2>Ergonomía para el trabajo remoto</h2>
+                <p>La ergonomía es clave para evitar lesiones a largo plazo cuando trabajas desde casa. Ajusta la altura
+                    de tu silla para que tus pies descansen planos en el suelo y tus rodillas estén a un ángulo de 90
+                    grados. Mantén la pantalla del monitor a la altura de los ojos y a una distancia de aproximadamente
+                    un brazo para reducir la tensión en el cuello y los ojos. Considera el uso de soportes para laptops
+                    y teclados externos para mejorar tu postura.</p>
+            </section>
+            <section id="tip3">
+                <h2>Seguridad de la información y ciberseguridad</h2>
+                <p>Proteger la información corporativa y personal es crucial en un entorno remoto. Usa siempre
+                    conexiones seguras como VPNs para acceder a redes de la empresa y evita conectarte a redes Wi-Fi
+                    públicas. Implementa un antivirus actualizado y activa los firewalls en todos los dispositivos.
+                    Además, asegúrate de realizar copias de seguridad regulares de tus archivos importantes y utiliza
+                    herramientas de encriptación para proteger la información sensible.</p>
+            </section>
+            <section id="tip4">
+                <h2>Manejo del estrés y bienestar</h2>
+                <p>El equilibrio entre el trabajo y la vida personal es esencial para mantener un buen estado de ánimo y
+                    productividad. Establece límites claros entre el tiempo de trabajo y el personal, y asegúrate de
+                    tomar descansos regulares para recargar energías. Practica técnicas de manejo del estrés, como la
+                    meditación o el ejercicio, y mantén una dieta balanceada para apoyar tu bienestar general.</p>
+            </section>
+            <section id="tip5">
+                <h2>Comunicación efectiva en equipos remotos</h2>
+                <p>La comunicación clara y frecuente es vital en equipos distribuidos. Utiliza herramientas de
+                    colaboración como Slack, Microsoft Teams o Zoom para mantener a todos en sintonía. Establece normas
+                    de comunicación, como horarios de disponibilidad y canales específicos para diferentes tipos de
+                    mensajes. También es importante programar reuniones regulares para discutir proyectos y mantener la
+                    cohesión del equipo.</p>
+            </section>
+            <section id="tip6">
+                <h2>Protección contra amenazas cibernéticas</h2>
+                <p>En un entorno de trabajo remoto, es importante estar siempre alerta ante posibles amenazas
+                    cibernéticas. Desconfía de correos electrónicos no solicitados, especialmente aquellos que soliciten
+                    información personal o contraseñas. Evita descargar archivos adjuntos de fuentes desconocidas y
+                    utiliza software de protección contra malware. Mantén tu sistema operativo y aplicaciones siempre
+                    actualizados para reducir el riesgo de vulnerabilidades.</p>
+            </section>
+            <section id="tip7">
+                <h2>Manejo seguro de datos y contraseñas</h2>
+                <p>El manejo seguro de datos es una responsabilidad crítica. Utiliza gestores de contraseñas para crear
+                    y almacenar credenciales únicas y complejas para cada cuenta. Cambia tus contraseñas regularmente y
+                    nunca reutilices las mismas contraseñas en múltiples servicios. Además, habilita la autenticación de
+                    dos factores (2FA) en todas las cuentas posibles para añadir una capa adicional de seguridad.</p>
+            </section>
+        </main>
+
+    </div>
+
+
+    <div id="perfil-content" class="content-section">
+        <div class="profile-container">
+            <div class="profile-header">
+                <img src="perfil.png" alt="Foto de Perfil">
+                <div class="profile-header">
+ <img src="{{ url_for('static', filename='images/perfilcorporativo.jpg') }}">
+                    <div class="profile-info">
+
+                        <div id="profile-name">{{ session.get('nombre', 'Nombre no disponible') }}</div>
+                        <div id="profile-id">{{ session.get('id_trabajador', 'ID no disponible') }}</div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="profile-nav">
+                <!-- Sección para informacion personal -->
+                <div class="accordion">
+                    <button class="accordion-button">Informacion personal</button>
+                    <div class="accordion-content">
+                        <form id="form-infoPp">
+                            <label for="nombree">Nombre del trabajador</label>
+                            <input type="text" id="nombree" name="nombre" required>
+                            <label for="cel">Telefono</label>
+                            <input type="text" id="cel" name="celular" pattern="\d{10}" maxlength="10" required>
+                            <br>
+                            <label for="correoE">Correo electronico </label>
+                           <input type="text" id="correoE" name="correo" placeholder="ejemplo@dominio.com"
+       pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+
+                            <label for="callee">Direccion</label>
+                            <input type="text" id="callee" name="calle" required>
+                        </form>
+                    </div>
+                </div>
+                <div class="accordion">
+                    <button class="accordion-button">Información Laboral</button>
+                    <div class="accordion-content">
+                        <form id="form-infoLl">
+                            <label for="fechaIngresoo">Fecha de ingreso</label>
+                            <br>
+                            <input type="text" id="fechaIngresoo" name="fechaIngreso" required>
+
+                            <label for="deparltamento">Departamento:</label>
+                            <input type="text" id="deparltamento" name="departamento" required>
+                            <br>
+                            <label for="deparltamento">Puesto</label>
+                            <input type="text" id="puestoTrabajoo" name="puestoTrabajo" required>
+                            <label for="deparltamento">Supervisor</label>
+                            <br>
+                            <input type="text" id="supervisorr" name="supervisor" required>
+                            <label for="horarioTrabajoo">Horario de trabajo</label>
+                            <input type="text" id="horarioTrabajoo" name="horarioTrabajo" required>
+                        </form>
+                    </div>
+                </div>
+                <!-- Sección para Configuración -->
+                <div class="accordion">
+                    <button class="accordion-button">Configuración</button>
+                    <div class="accordion-content">
+                        <!-- Configuración -->
+                    </div>
+                </div>
+                <!-- Sección para Accesos y Permisos -->
+                <div class="accordion">
+                    <button class="accordion-button">Accesos y Permisos</button>
+                    <div class="accordion-content">
+                        <!-- Accesos y Permisos -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="monitoreo-content" class="content-section">
+    <h1>Analizador de Phishing</h1>
+    <form action="/analizar" method="post">
+        <label for="mensaje">Introduce el mensaje o correo electrónico:</label><br>
+        <textarea id="mensaje" name="mensaje" rows="10" cols="50" placeholder="Escribe el texto aquí..."></textarea><br>
+        <button type="submit">Analizar</button>
+
+
+    </form>
+</div>
+
+    <div id="registro-content" class="content-section">
+        <div class="form-container">
+            <div class="form-section" id="infoP">
+                <h2>Información Personal</h2>
+                <form id="form-infoP">
+                    <label for="calle">Calle:</label>
+                    <input type="text" id="calle" name="calle" required>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                    <label for="celular">Celular:</label>
+                    <input type="text" id="celular" name="celular" required>
+                    <label for="correo">Correo:</label>
+                    <input type="email" id="correo" name="correo" required>
+                    <button type="button" onclick="submitInfoP()">Guardar Información Personal</button>
+                </form>
+            </div>
+            <div class="form-section" id="infoL">
+                <h2>Información Laboral</h2>
+                <form id="form-infoL">
+                    <label for="puestoTrabajo">Puesto de Trabajo:</label>
+                    <input type="text" id="puestoTrabajo" name="puestoTrabajo" required>
+                    <label for="departamento">Departamento:</label>
+                    <input type="text" id="departamento" name="departamento" required>
+                    <label for="supervisor">Supervisor:</label>
+                    <input type="text" id="supervisor" name="supervisor" required>
+                    <label for="fechaIngreso">Fecha de Ingreso:</label>
+                    <input type="date" id="fechaIngreso" name="fechaIngreso" required>
+                    <label for="horarioTrabajo">Horario de Trabajo:</label>
+                    <input type="text" id="horarioTrabajo" name="horarioTrabajo" required>
+                    <button type="button" onclick="submitInfoL()">Guardar Información Laboral</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="guia-content" class="content-section">Guía de Uso
+        <h1>Te damos la bienvenida a la experiencia <br> CYBIOMETRICS</h1>
+
+    <h3>Reproduce el video guia para que aprendas a usar Cybiometrics</h3>
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/XxmBes2PWus" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+
+<div id="CerrarSesion-content" class="sesion-section">sesion
+        <a href="reingresarlogin">
+            <button class="buttun-acceder"> Cerrar sesion <br>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-brilliance" viewBox="0 0 16 16">
+                    <path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16M1 8a7 7 0 0 0 7 7 3.5 3.5 0 1 0 0-7 3.5 3.5 0 1 1 0-7 7 7 0 0 0-7 7"/>
+                </svg>
+            </button>
+        </a>
+
+        <a href="reingresarlogin">
+            <button class="buttun-acceder"> Suspender <br>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-brightness-alt-low-fill" viewBox="0 0 16 16">
+                    <path d="M8.5 5.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m5 6a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1M2 11a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0m10.243-3.536a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707m-8.486-.707a.5.5 0 1 0 .707.707.5.5 0 0 0-.707-.707M8 7a4 4 0 0 0-4 4 .5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5 4 4 0 0 0-4-4"/>
+                </svg>
+            </button>
+        </a>
+    </div>
+
+</div>
+<script src="{{ url_for('static', filename='js/panel.js') }}"></script>
+
+<script>
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll('.content-section');
+        sections.forEach(section => {
+            section.style.display = 'none';
+        });
+        document.getElementById(sectionId).style.display = 'block';
+    }
+
+    // Mostrar la primera sección por defecto
+    showSection('home-content');
+</script>
+</body>
+</html>

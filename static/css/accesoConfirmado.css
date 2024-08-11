@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white; /* Fondo blanco */
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+#curved-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 650px; /* Ajusta el ancho según sea necesario */
+    height: 650px; /* Ajusta la altura según sea necesario */
+    background-color: #001B61; /* Color azul para el cuadro con esquina curva */
+    overflow: hidden; /* Asegura que el pseudo-elemento no sobresalga del contenedor */
+}
+
+#curved-box::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 1300px; /* Tamaño grande para profundizar la curva */
+    height: 1300px;
+    background-color: white; /* Color de fondo para el recorte */
+    border-radius: 50%;
+    transform: translate(50%, 50%); /* Mueve el círculo hacia adentro */
+    z-index: 1; /* Asegura que esté debajo del contenido del cuadro */
+}
+
+#logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 100px;
+    height: auto;
+    z-index: 2;
+}
+
+#content {
+    position: absolute;
+    top: 50%; /* Ajusta para posicionar más abajo */
+    left: 400px; /* Ajusta para posicionar más a la izquierda */
+    transform: translateY(70%); /* Centra verticalmente */
+    text-align: left; /* Alinea el texto a la izquierda */
+    z-index: 2;
+}
+
+#acceso {
+    position: absolute;
+    top: -40%;
+    right: 80px;
+    width: 300px;
+    height: auto;
+}
+
+h1 {
+    font-size: 48px;
+    color: #000; /* Asegúrate de que el color sea negro */
+    margin: 0 0 20px 0; /* Ajusta los márgenes para alineación precisa */
+}
+
+#Siguiente {
+    background-color: #007BFF; /* Color azul para el botón */
+    color: #fff; /* Texto blanco */
+    border: none;
+    padding: 20px 40px; /* Tamaño más grande */
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 20px; /* Ajusta el margen superior para espaciado con otros elementos */
+}
+
+h4 {
+    font-size: 18px;
+    color: #666;
+    margin: 20px 0 0 0; /* Ajusta el margen superior e inferior para espaciado */
+}
+
+h1, h4, #Siguiente {
+    position: relative;
+    z-index: 10;
+}

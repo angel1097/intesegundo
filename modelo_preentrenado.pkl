@@ -1,0 +1,18 @@
+import joblib
+
+# Cargar el modelo
+dtr = joblib.load('modelo_preentrenado.pkl')
+
+# Usar el modelo cargado para hacer predicciones
+pred_dtr = dtr.predict(x_test)
+
+# Evaluación del rendimiento
+print(f"accuracy from Decision Tree: {accuracy_score(y_test, pred_dtr) * 100:.2f} %")
+print(f"f1 score from Decision Tree: {f1_score(y_test, pred_dtr) * 100:.2f} %")
+print("classification report : \n", classification_report(y_test, pred_dtr))
+
+# Matriz de confusión
+clf_dtr = confusion_matrix(y_test, pred_dtr)
+cx_ = ConfusionMatrixDisplay(clf_dtr, display_labels=['phishing_mail', 'safe_mail']).plot()
+plt.title("confusion matrix")
+plt.show()
